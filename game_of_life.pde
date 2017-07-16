@@ -106,9 +106,14 @@ void mouseClicked() {
        for(int j = 0; j < height; j += ca.w) {
           if(mouseX > i && mouseX < i + ca.w)
             if(mouseY > j && mouseY < j + ca.w) {
-               fill(0);
+               if(map[i/ca.w][j/ca.w] != 1) {
+                 fill(0);
+                 map[i/ca.w][j/ca.w] = 1;
+               } else {
+                 fill(255); 
+                 map[i/ca.w][j/ca.w] = 0;
+               }
                rect(i, j, ca.w, ca.w);
-               map[i/ca.w][j/ca.w] = 1;
             }
        }
     }
